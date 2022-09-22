@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="gameBoard.css">
+    <link rel="stylesheet" href="boats.css">
+    <title>Battle Ships</title>
+    <script src="battleShips.js"></script>
+    <script>
+        BoatTopVertical = "<div  class='BoatTopVertical'></div>"
+        BoatMiddleVertical = "<div  class='BoatMiddleVertical'></div>"
+        BoatBottomVertical = "<div  class='BoatBottomVertical'></div>"
+
+        BoatRightHorizontal = "<div  class='BoatRightHorizontal'></div>"
+        BoatMiddleHorizontal = "<div  class='BoatMiddleHorizontal'></div>"
+        BoatLeftHorizontal = "<div  class='BoatLeftHorizontal'></div>"
+
+        standardBoats = [ new Boat(5, "Carrier"), new Boat(4, "Battleship"), new Boat(3, "Cruiser"), new Boat(3, "Submarine"), new Boat(2, "Destroyer") ];
+        standardBoard = new Board(10, 10);
+
+        Player = new Player("P1", standardBoats, standardBoard);
+
+        Player.generateBoard();
+
+    </script>
+</head>
+<body>
+    <h1>Battle Ships</h1>
+    <div class="Game">
+        <table class="GameBoard">
+            <tr>
+                <td class="Indicator"></td>
+                <td class="Indicator">A</td>
+                <td class="Indicator">B</td>
+                <td class="Indicator">C</td>
+                <td class="Indicator">D</td>
+                <td class="Indicator">E</td>
+                <td class="Indicator">F</td>
+                <td class="Indicator">G</td>
+                <td class="Indicator">H</td>
+                <td class="Indicator">I</td>
+                <td class="Indicator" style="border-right: 2px solid #000">J</td>
+            </tr>
+            <tr>
+                <td class="Indicator">1</td>
+                <td class="Field" id="1A" onclick="cellClick('1A')"></td>
+                <td class="Field" id="1B" onclick="cellClick('1B')"></td>
+                <td class="Field" id="1C" onclick="cellClick('1C')"></td>
+                <td class="Field" id="1D" onclick="cellClick('1D')"></td>
+                <td class="Field" id="1E" onclick="cellClick('1E')"></td>
+                <td class="Field" id="1F" onclick="cellClick('1F')"></td>
+                <td class="Field" id="1G" onclick="cellClick('1G')"></td>
+                <td class="Field" id="1H" onclick="cellClick('1H')"></td>
+                <td class="Field" id="1I" onclick="cellClick('1I')"></td>
+                <td class="Field" id="1J" onclick="cellClick('1J')"></td>
+            </tr>
+            <tr>
+                <td class="Indicator">2</td>
+                <td class="Field" id="2A" onclick="cellClick('2A')"></td>
+                <td class="Field" id="2B" onclick="cellClick('2B')"></td>
+                <td class="Field" id="2C" onclick="cellClick('2C')"></td>
+                <td class="Field" id="2D" onclick="cellClick('2D')"></td>
+                <td class="Field" id="2E" onclick="cellClick('2E')"></td>
+                <td class="Field" id="2F" onclick="cellClick('2F')"></td>
+                <td class="Field" id="2G" onclick="cellClick('2G')"></td>
+                <td class="Field" id="2H" onclick="cellClick('2H')"></td>
+                <td class="Field" id="2I" onclick="cellClick('2I')"></td>
+                <td class="Field" id="2J" onclick="cellClick('2J')"></td>
+            </tr>
+            <tr>
+                <td class="Indicator">3</td>
+                <td class="Field" id="3A" onclick="cellClick('3A')"></td>
+                <td class="Field" id="3B" onclick="cellClick('3B')"></td>
+                <td class="Field" id="3C" onclick="cellClick('3C')"></td>
+                <td class="Field" id="3D" onclick="cellClick('3D')"></td>
+                <td class="Field" id="3E" onclick="cellClick('3E')"></td>
+                <td class="Field" id="3F" onclick="cellClick('3F')"></td>
+                <td class="Field" id="3G" onclick="cellClick('3G')"></td>
+                <td class="Field" id="3H" onclick="cellClick('3H')"></td>
+                <td class="Field" id="3I" onclick="cellClick('3I')"></td>
+                <td class="Field" id="3J" onclick="cellClick('3J')"></td>
+            </tr>
+            <tr>
+                <td class="Indicator">4</td>
+                <td class="Field" id="4A" onclick="cellClick('4A')"></td>
+                <td class="Field" id="4B" onclick="cellClick('4B')"></td>
+                <td class="Field" id="4C" onclick="cellClick('4C')"></td>
+                <td class="Field" id="4D" onclick="cellClick('4D')"></td>
+                <td class="Field" id="4E" onclick="cellClick('4E')"></td>
+                <td class="Field" id="4F" onclick="cellClick('4F')"></td>
+                <td class="Field" id="4G" onclick="cellClick('4G')"></td>
+                <td class="Field" id="4H" onclick="cellClick('4H')"></td>
+                <td class="Field" id="4I" onclick="cellClick('4I')"></td>
+                <td class="Field" id="4J" onclick="cellClick('4J')"></td>
+            </tr>
+            <tr>
+                <td class="Indicator">5</td>
+                <td class="Field" id="5A" onclick="cellClick('5A')"></td>
+                <td class="Field" id="5B" onclick="cellClick('5B')"></td>
+                <td class="Field" id="5C" onclick="cellClick('5C')"></td>
+                <td class="Field" id="5D" onclick="cellClick('5D')"></td>
+                <td class="Field" id="5E" onclick="cellClick('5E')"></td>
+                <td class="Field" id="5F" onclick="cellClick('5F')"></td>
+                <td class="Field" id="5G" onclick="cellClick('5G')"></td>
+                <td class="Field" id="5H" onclick="cellClick('5H')"></td>
+                <td class="Field" id="5I" onclick="cellClick('5I')"></td>
+                <td class="Field" id="5J" onclick="cellClick('5J')"></td>
+            </tr>
+            <tr>
+                <td class="Indicator">6</td>
+                <td class="Field" id="6A" onclick="cellClick('6A')"></td>
+                <td class="Field" id="6B" onclick="cellClick('6B')"></td>
+                <td class="Field" id="6C" onclick="cellClick('6C')"></td>
+                <td class="Field" id="6D" onclick="cellClick('6D')"></td>
+                <td class="Field" id="6E" onclick="cellClick('6E')"></td>
+                <td class="Field" id="6F" onclick="cellClick('6F')"></td>
+                <td class="Field" id="6G" onclick="cellClick('6G')"></td>
+                <td class="Field" id="6H" onclick="cellClick('6H')"></td>
+                <td class="Field" id="6I" onclick="cellClick('6I')"></td>
+                <td class="Field" id="6J" onclick="cellClick('6J')"></td>
+            </tr>
+            <tr>
+                <td class="Indicator">7</td>
+                <td class="Field" id="7A" onclick="cellClick('7A')"></td>
+                <td class="Field" id="7B" onclick="cellClick('7B')"></td>
+                <td class="Field" id="7C" onclick="cellClick('7C')"></td>
+                <td class="Field" id="7D" onclick="cellClick('7D')"></td>
+                <td class="Field" id="7E" onclick="cellClick('7E')"></td>
+                <td class="Field" id="7F" onclick="cellClick('7F')"></td>
+                <td class="Field" id="7G" onclick="cellClick('7G')"></td>
+                <td class="Field" id="7H" onclick="cellClick('7H')"></td>
+                <td class="Field" id="7I" onclick="cellClick('7I')"></td>
+                <td class="Field" id="7J" onclick="cellClick('7J')"></td>
+            </tr>
+            <tr>
+                <td class="Indicator">8</td>
+                <td class="Field" id="8A" onclick="cellClick('8A')"></td>
+                <td class="Field" id="8B" onclick="cellClick('8B')"></td>
+                <td class="Field" id="8C" onclick="cellClick('8C')"></td>
+                <td class="Field" id="8D" onclick="cellClick('8D')"></td>
+                <td class="Field" id="8E" onclick="cellClick('8E')"></td>
+                <td class="Field" id="8F" onclick="cellClick('8F')"></td>
+                <td class="Field" id="8G" onclick="cellClick('8G')"></td>
+                <td class="Field" id="8H" onclick="cellClick('8H')"></td>
+                <td class="Field" id="8I" onclick="cellClick('8I')"></td>
+                <td class="Field" id="8J" onclick="cellClick('8J')"></td>
+            </tr>
+            <tr>
+                <td class="Indicator">9</td>
+                <td class="Field" id="9A" onclick="cellClick('9A')"></td>
+                <td class="Field" id="9B" onclick="cellClick('9B')"></td>
+                <td class="Field" id="9C" onclick="cellClick('9C')"></td>
+                <td class="Field" id="9D" onclick="cellClick('9D')"></td>
+                <td class="Field" id="9E" onclick="cellClick('9E')"></td>
+                <td class="Field" id="9F" onclick="cellClick('9F')"></td>
+                <td class="Field" id="9G" onclick="cellClick('9G')"></td>
+                <td class="Field" id="9H" onclick="cellClick('9H')"></td>
+                <td class="Field" id="9I" onclick="cellClick('9I')"></td>
+                <td class="Field" id="9J" onclick="cellClick('9J')"></td>
+            </tr>
+            <tr>
+                <td class="Indicator" style="border-bottom: 2px solid #000">10</td>
+                <td class="Field" id="10A" onclick="cellClick('10A')"></td>
+                <td class="Field" id="10B" onclick="cellClick('10B')"></td>
+                <td class="Field" id="10C" onclick="cellClick('10C')"></td>
+                <td class="Field" id="10D" onclick="cellClick('10D')"></td>
+                <td class="Field" id="10E" onclick="cellClick('10E')"></td>
+                <td class="Field" id="10F" onclick="cellClick('10F')"></td>
+                <td class="Field" id="10G" onclick="cellClick('10G')"></td>
+                <td class="Field" id="10H" onclick="cellClick('10H')"></td>
+                <td class="Field" id="10I" onclick="cellClick('10I')"></td>
+                <td class="Field" id="10J" onclick="cellClick('10J')"></td>
+            </tr>
+        </table>
+    </div>
+
+    <script>Player.board.placeBoardHTML(Player.boats);</script>
+</body>
+</html>
