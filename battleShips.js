@@ -62,7 +62,7 @@ class Player {
         this.boats.forEach(boat => {
             while (boat.placed === false) {
                 // chose random coordinates for each boat
-                const x = Math.floor(Math.random() * this.board.witdh);
+                const x = Math.floor(Math.random() * this.board.width);
                 const y = Math.floor(Math.random() * this.board.height);
 
                 // chose random rotation for each boat
@@ -106,14 +106,14 @@ class Cell {
 }
 
 class Board {
-    constructor(witdh, height) {
+    constructor(width, height) {
         for (let i = 0; i < height; i++) {
             this[i] = [];
-            for (let j = 0; j < witdh; j++) {
+            for (let j = 0; j < width; j++) {
                 this[i][j] = new Cell(i, j);
             }
         }
-        this.witdh = witdh;
+        this.width = width;
         this.height = height;
         this.texture = null;
     }
@@ -200,7 +200,7 @@ class Board {
 
     printDebugBoard() {
         for (let i = 0; i < this.height; i++) {
-            for (let j = 0; j < this.witdh; j++) {
+            for (let j = 0; j < this.width; j++) {
                 if (this[i][j].boat === null) {
                     process.stdout.write('[ ] ');
                 } else {
@@ -213,7 +213,7 @@ class Board {
 
     placeBoardHTML(boats) {
         for (let i = 0; i < this.height; i++) {
-            for (let j = 0; j < this.witdh; j++) {
+            for (let j = 0; j < this.width; j++) {
                 if (this[i][j].boat !== null) {
                     document.getElementById((i+1).toString() + numberToLetter(j)).innerHTML = this[i][j].texture;
                 }
