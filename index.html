@@ -5,33 +5,42 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/style.css">
-    <link rel="stylesheet" href="styles/gameBoard.css">
     <link rel="stylesheet" href="styles/boats.css">
     <title>Battle Ships</title>
     <script src="scripts/battleShips.js"></script>
     <script>
-        BoatTopVertical = "<div  class='BoatTopVertical'></div>"
-        BoatMiddleVertical = "<div  class='BoatMiddleVertical'></div>"
-        BoatBottomVertical = "<div  class='BoatBottomVertical'></div>"
+        BoatTopVertical = "<div  class='BoatTopVertical BoatElement'></div>"
+        BoatMiddleVertical = "<div  class='BoatMiddleVertical BoatElement'></div>"
+        BoatBottomVertical = "<div  class='BoatBottomVertical BoatElement'></div>"
 
-        BoatRightHorizontal = "<div  class='BoatRightHorizontal'></div>"
-        BoatMiddleHorizontal = "<div  class='BoatMiddleHorizontal'></div>"
-        BoatLeftHorizontal = "<div  class='BoatLeftHorizontal'></div>"
+        BoatRightHorizontal = "<div  class='BoatRightHorizontal BoatElement'></div>"
+        BoatMiddleHorizontal = "<div  class='BoatMiddleHorizontal BoatElement'></div>"
+        BoatLeftHorizontal = "<div  class='BoatLeftHorizontal BoatElement'></div>"
 
-        standardBoats = [ new Boat(5, "Carrier"), new Boat(4, "Battleship"), new Boat(3, "Cruiser"), new Boat(3, "Submarine"), new Boat(2, "Destroyer") ];
-        standardBoard = new Board(10, 10);
+        function generateNewBoard() {
+            standardBoats = [ new Boat(5, "Carrier"), new Boat(4, "Battleship"), new Boat(3, "Cruiser"), new Boat(3, "Submarine"), new Boat(2, "Destroyer") ];
+            standardBoard = new Board(10, 10);
+            
+            player = new Player("P1", standardBoats, standardBoard);
+            player.generateBoard();
+            player.board.placeBoardHTML(player.boats);
+        }
 
-        Player = new Player("P1", standardBoats, standardBoard);
-
-        Player.generateBoard();
-
+        function clearGameTable() {
+            var boats = document.getElementsByClassName("BoatElement");
+            boatsLength = boats.length;
+            for (var i = 0; i < boatsLength; i++) {
+                boats[boatsLength-i-1].remove();
+                console.log("Removed boat");
+            }
+        }
     </script>
 </head>
 <body>
     <div id="Main">
         <div class="Settings">
             <h1>Settings</h1>
-            <button onclick="location.reload();">Re-generate</button>
+            <button onclick="clearGameTable(); generateNewBoard();">Re-generate</button>
         </div>
 
         <table class="GameBoard">
@@ -180,7 +189,6 @@
             </tr>
         </table>
     </div>
-    
-    <script>Player.board.placeBoardHTML(Player.boats);</script>
+    <script>generateNewBoard();</script>
 </body>
 </html>
