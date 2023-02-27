@@ -28,9 +28,12 @@
     </script>
 </head>
 <body>
-    <button onclick="location.reload();">Re-generate</button>
-    
-    <div class="Game">
+    <div id="Main">
+        <div class="Settings">
+            <h1>Settings</h1>
+            <button onclick="location.reload();">Re-generate</button>
+        </div>
+
         <table class="GameBoard">
             <tr>
                 <td class="Indicator"></td>
@@ -177,7 +180,7 @@
             </tr>
         </table>
     </div>
-
+    
     <script>Player.board.placeBoardHTML(Player.boats);</script>
 </body>
 </html>
